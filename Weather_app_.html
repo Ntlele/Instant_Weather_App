@@ -1,0 +1,210 @@
+<DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Trail</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="trialstyle.css">
+	</head>
+	
+	<body>
+        
+        <!--..........logo for the weather app and side section........
+        ...............................................................-->
+        
+		<div class="brand">Instant <br> Weather <br> App</div>
+		<div class="print">
+			<div class="side-section">
+				
+			</div>
+            
+            <!--.............Weather card body...............   
+            .................................................-->
+            
+			<section id="divi" class="card">
+			
+				<input type="text" id="myInput" class="search" placeholder="enter location" spellcheck="false">
+				<button id="btn" class="searchbutton"><img src="search7.png" width='24' height='24'></button>
+				<div class="city"></div>
+				<div class="temp"></div>
+				<p class="desc"></p>
+				
+				<div id="feel">feels like<div class="feel"></div></div>
+				
+				
+				<img src="clouds.png" class="clouds">
+				<div id="wind"> 
+					<img src="wind.png" width="60"  style="float: left; display: inline-block; magin-top: 30px;">
+				<div class="wind"></div><br>Wind speed</div>
+				<div id="humid"><div class="humid"></div><br><br>Humidity</div>
+				
+				
+			</section>
+            
+			<!--..........Clock code..............
+            ......................................-->
+            
+			<div class="wrapper">
+				<div class="cout"></div>
+				<div class="secbars"></div>
+				<div class="no-hours"></div>
+				
+				<div class=" hands">
+					<div class="box hourhand"><i></i></div>
+					<div class="box minhand"><i></i></div>
+					<div class="box sechand"><i></i></div>
+				</div>
+				
+			</div>
+		</div>
+        
+	<!--.................Card script to call weather API...............
+    ...................................................................-->
+        
+		<script>
+			const apiKey = "a43cd0a9fa8a73764154478ff6b5d72f";
+			const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+			
+			const searchB = document.querySelector(".search");
+			const searchbtn = document.querySelector(".searchbutton");
+			const cloudicon = document.querySelector(".clouds")
+
+			async function checkweather(city){
+			   const response = await fetch(apiurl + city + `&appid=${apiKey}`);
+			   var data = await response.json();  
+				
+			   if(data.weather[0].main == "Clouds"){
+			
+				cloudicon.src = "clouds.png";
+			
+			}else if(data.weather[0].main == "Rain"){
+			
+				cloudicon.src = "rain.png";
+			
+			}else if(data.weather[0].main == "Clear"){
+			
+				cloudicon.src = "Clear.png";
+			
+			} else if(data.weather[0].main == "Drizzle"){
+			
+				cloudicon.src = "drizzle.png";
+			
+			} else if(data.weather[0].main == "Mist"){
+			
+				cloudicon.src = "mist.png";
+			
+			}
+			   console.log(data); 
+			   
+			   document.querySelector(".city").innerHTML = "Weather in:" + " " + data.name;
+			   document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°"; 
+			   document.querySelector(".humid").innerHTML = data.main.humidity + "%";
+			   document.querySelector(".feel").innerHTML = Math.round(data.main.feels_like) + "°";
+			   document.querySelector(".wind").innerHTML = Math.round(data.wind.speed) + "Km/h";
+			   document.querySelector(".desc").innerHTML = data.weather[0].description;
+			   
+			 } 
+			
+			searchbtn.addEventListener("click", ()=>{
+				checkweather(searchB.value); 
+				
+				document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?"+ searchB.value +"')";
+			});
+			
+			
+			
+			</script>
+			
+			<script>	
+			
+            /*-----------card effect ------------
+            -------------------------------------*/
+                
+			const car = document.getElementById("btn");
+			
+			car.addEventListener("click", function myfunction(){
+			const swich = document.getElementById("divi");
+			swich.classList.replace("card","cover");
+			
+		    });
+		
+			
+			/*------------enter key  submits value--------
+            ----------------------------------------------*/
+			
+			var input = document.getElementById("myInput");
+			
+			input.addEventListener("keypress", function(event) {
+			  if (event.key === "Enter") {
+				event.preventDefault();
+				document.getElementById("btn").click();
+			  }
+			});
+			
+			
+		</script>
+		
+		
+		
+		<!--...............clock script...................
+        ..................................................-->
+		
+		<script>
+		const nuhours = document.querySelector(".no-hours");
+		const sbar = document.querySelector(".secbars");
+		const nelement = [];
+		const barelement = [];
+		
+		
+		for (let i = 1; i <=12; i++) {
+			nelement.push(
+				`<span style="--index:${i};"><p>${i}</p></span>`
+			);
+			}
+			nuhours.insertAdjacentHTML("afterbegin", nelement.join(""));
+		    
+			
+			for (let i = 1; i <= 60; i++) {
+				barelement.push(
+				`<span style="--index:${i};"><p></p></span>`
+			);
+			}
+			
+			sbar.insertAdjacentHTML("afterbegin", barelement.join(""));
+		
+		
+	</script>
+	<script>
+		const hourbox = document.querySelector(".box.hourhand");
+		const minbox = document.querySelector(".box.minhand");
+		const secbox = document.querySelector(".box.sechand");
+		
+		function getCurrentTime() {
+		
+			let date = new Date();
+			let currentHours = date.getHours();
+			let currentMinutes = date.getMinutes();
+			let currentSeconds = date.getSeconds();
+			
+			
+			
+			
+			hourbox.style.transform = `rotate(${currentHours * 30 + currentMinutes / 2}deg)`;
+			minbox.style.transform = `rotate(${currentMinutes * 6}deg)`;
+			secbox.style.transform = `rotate(${currentSeconds * 6}deg)`;
+			
+			
+		}
+		
+		
+		getCurrentTime();
+		
+		setInterval(getCurrentTime, 1000);
+		
+		
+	</script>
+		
+		
+		
+	</body>	
+</html>

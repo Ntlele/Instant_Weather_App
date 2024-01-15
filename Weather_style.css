@@ -1,0 +1,439 @@
+*{
+	box-sizing: border-box;
+}
+
+
+body{
+	background-color: black;
+	text-align: center;
+	background: url(land.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	font-family: Tahoma;
+	
+}
+
+.print{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+    background: rgba(10,10,10,.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	overflow: hidden;
+	
+}
+
+/*..........side section style..............
+............................................*/
+
+.brand{
+	position: absolute;
+	top: 10%;
+	left: 5%;
+	font-size: 60px;
+	font-weight: bold;
+	color: rgba(200,200,200,1);
+	text-shadow: 0px 0px 20px black;
+	z-index: 1;
+}
+
+.side-section{
+	position: absolute;
+	bottom: 4%;
+	left: 3%;
+	width: 350px;
+	height: 400px;
+	background: white;
+	opacity: .5;
+    
+	
+}
+
+/*..........card style............
+..................................*/
+
+
+
+
+.card{
+	background: linear-gradient(to bottom, rgba(180,180,180,.3), rgba(0,0,0,.7));
+	height: 130px;
+	width: 450px;
+	top: 10%;
+	left: 33%;
+	align-self: center;
+	border-radius: 30px; 
+	text-align: center;
+	overflow: auto;
+	color: black;
+	border: 2px inset rgba(180,90,20,.3);
+	overflow: hidden;
+	transition: height 1s;
+	box-shadow: 0px 0px 10px 10px black;
+	backdrop-filter: blur(10px);
+}
+
+
+
+
+.cover{
+	height: 650px;
+	background: linear-gradient(to bottom, rgba(180,180,180,.3), rgba(0,0,0,.7));
+	width: 450px;
+	top: 10%;
+	left: 33%;
+	align-self: center;
+	border-radius: 30px; 
+	text-align: center;
+	overflow: auto;
+	color: black;
+	border: 2px inset rgba(180,90,20,.3);
+	overflow: hidden;
+	transition: height 1s;
+	box-shadow: 0px 0px 10px 10px black;
+	backdrop-filter: blur(7px);
+}
+
+
+.search{
+	height: 50px;
+	width: 70%;
+	background: rgba(0,0,0,0.7);
+	margin-top: 40px;
+	border-radius: 15px;
+	border: none;
+	text-align: center;
+	display: block;
+	float: left;
+	margin-left: 30px;
+	color: white;
+	font-size: 25px;
+	text-transform: capitalize;
+	background-image: url('location-icon.png');
+	background-size: 35px;
+	background-repeat: no-repeat;
+	background-position-y: 50%;
+	background-position-x: 4%;
+    
+}
+
+
+.searchbutton{
+	height: 53px;
+	width: 12%;
+	background: rgba(0,0,0,0.7);
+	margin-top: 40px;
+	border-radius: 40px;
+	border: none;
+	text-align: center;
+	display: block;
+	float: left;
+	margin-left: 15px;
+	margin-right: 20px;
+	color: white;
+}
+
+
+.city{
+	color: black;
+	float: left;
+	display: inline-block;
+	margin-top: 7%;
+	margin-left: 7%;
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+}
+
+
+.temp{
+	font-size: 110px;
+	margin-top: 40%;
+	font-family: Tahoma;
+	max-width: auto;
+	height: auto;
+	background: rgba(0,0,0,0);
+	color: rgba(244, 160, 10, 0.98);
+	padding-bottom: 0;
+	
+}
+
+
+.desc{
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	text-transform: capitalize;
+	letter-spacing: 1px;
+	margin-top: 0;
+}
+
+
+.clouds{
+	height:120px;
+	width: auto;
+	float: right;
+	font-size: 50px;
+	background: rgba(0,0,0,0);
+	display:inline-block;
+	padding-top: 0px;
+	margin-right: 20%;
+	color: white;
+}
+
+
+#feel{
+	height: auto;
+	width: auto;
+	font-size: 20px;
+	margin-top: 25px;
+	margin-left: 20%;
+	display: inline-block;
+	padding-top: 0px;
+	float: left;
+	background: rgba(0,0,0,0);
+	color: white;
+}
+
+
+.feel{
+	height: auto;
+	width: auto;
+	font-size: 50px;
+	display:block;
+	padding-top: 0px;
+	background: rgba(0,0,0,0);
+	color:rgba(234, 194, 10, 0.9);
+	
+}
+
+
+#wind{
+	height: auto;
+	width: auto;
+	font-size: 20px;
+	background : rgba(0,0,0,0);
+	margin-top: 12%;
+	margin-left: 7%;
+	display: inline-block;
+	padding-top: 0px;
+	float: left; 
+	color: white;
+
+	
+}
+
+
+.wind{
+	height:auto;
+	width: auto;
+	font-size: 50px;
+	background : rgba(0,0,0,0);
+	display: inline-block;
+	padding-top: 0px;
+	color:rgba(119, 120, 124, 1);
+	
+}
+
+
+.humid{
+	height:auto;
+	width: 50%;
+	float: left;
+	font-size: 50px;
+	background: rgba(0,0,0,0);
+	margin-top: 0px;
+	display:inline-block;
+	padding-top: 0px;
+	color: rgba(25, 138, 255, 0.87);
+}
+
+
+#humid{
+	height:auto;
+	width: auto;
+	float: right;
+	font-size: 20px;
+	background: rgba(0,0,0,0);
+	margin-top: 12%;
+	margin-right: 10%;
+	display:inline-block;
+	padding-top: 0px;
+	color: white;
+   
+}
+
+
+
+
+
+
+
+
+/*......................CLOCK STYLE............................
+..............................................................*/
+
+
+*{ 
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	
+}
+
+
+.wrapper{
+	position: absolute;
+	top: 10%;
+	right: 3%;
+	width: 200px;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+}
+
+.secbars,
+.no-hours{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: radial-gradient(circle, rgba(0,0,0,.3), rgba(0, 0, 0, .5));
+	border-radius: 100%;
+}
+
+
+.secbars span:nth-child(5n) p{
+	width: 2px;
+	background-color: white;
+	height: 10px;
+	transform: translatey(1px);
+	
+}
+
+.secbars span{
+	position: absolute;
+	transform: rotate(calc(var(--index) * 6deg));
+	inset: -3px;
+	text-align: center;
+}
+
+.secbars span p{
+	display: inline-block;
+	width: 1px;
+	height: 6px;
+	background: white;
+	z-index: 0;
+	
+}
+
+.no-hours span{
+	position: absolute;
+	transform: rotate(calc(var(--index) * 30deg));
+	inset: 8px;
+	text-align: center;
+}
+
+.no-hours span p{
+	font-size: 20px;
+	color: white;
+	text-shadow: 0 0 10px black;
+	transform: rotate(calc(var(--index) * -30deg));
+}
+
+.hands{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.hands .box{
+	position: absolute;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	
+}
+
+.hands .box i{
+	display: inline-block;
+	transform-origin: bottom;
+	border-radius: 50%;
+}
+
+
+.hands .hourhand{
+	width: 100px;
+	height: 150px;
+
+}
+
+.hands .hourhand i{
+	width: 3px;
+	height: 75px;
+	background: red;
+	
+}
+
+.hands .minhand{
+	width: 180px;
+	height: 180px;
+	
+	
+}
+
+.hands .sechand::before{
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translatey(-50%);
+	width: 10px;
+	height: 10px;
+	background: #fff;
+	border-radius: 50%;
+	box-shadow: 0 0 2px rgba(0,0,0,.5);
+}
+
+.hands .minhand i{
+	width: 3px;
+	height: 90px;
+	background: yellow;
+	
+}
+
+.hands .sechand{
+	width: 200px;
+	height:200px;
+	
+	
+}
+
+.hands .sechand::before{
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translatey(-50%);
+	width: 10px;
+	height: 10px;
+	background: #fff;
+	border-radius: 50%;
+	box-shadow: 0 0 2px rgba(0,0,0,.5);
+}
+
+.hands .sechand i{
+	width: 2px;
+	height: calc(100px + 20px);
+	background: green;
+	
+}
+
+
+
+
+
